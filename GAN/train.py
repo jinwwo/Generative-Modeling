@@ -93,6 +93,9 @@ def train_loop(D, G, num_epochs, dataloader, device):
             iterator.set_description(
                 f"epoch:{epoch} iteration:{i} D_loss:{Dloss} G_loss:{Gloss}"
             )
+            
+    torch.save(G.state_dict(), "Generator.pth")
+    torch.save(D.state_dict(), "Discriminator.pth")
 
 
 if __name__ == "__main__":
